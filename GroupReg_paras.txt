@@ -1,0 +1,131 @@
+// ==============================================================================
+// Image Details:
+// ==============================================================================
+// Defined manually:
+(FixedInternalImagePixelType "float")
+(FixedImageDimension 4)
+(MovingInternalImagePixelType "float")
+(MovingImageDimension 4)
+
+
+// ==============================================================================
+// Registration Components:
+// ==============================================================================
+// Defined by Study Program:
+(Registration "MultiMetricMultiResolutionRegistration")
+(Metric "AdvancedMeanSquares" "TransformBendingEnergyPenalty")
+(Metric0Weight 1.0)
+(Metric1Weight 0.005)
+(UseNormalization "true")
+(Optimizer "AdaptiveStochasticGradientDescent")
+(UseCyclicTransform "false")
+
+// Defined manually:
+(FixedImagePyramid "FixedSmoothingImagePyramid")
+(MovingImagePyramid "MovingSmoothingImagePyramid")
+(Interpolator "BSplineInterpolator")
+(BSplineInterpolationOrder 3)
+(ResampleInterpolator "FinalBSplineInterpolator")
+(Resampler "DefaultResampler")
+(Transform "BSplineTransform")
+(BSplineTransformSplineOrder 2)
+(FinalBSplineInterpolationOrder 3)
+
+
+// ==============================================================================
+// 4D Registration Components:
+// ==============================================================================
+// Defined manually:
+(MovingImageDerivativeScales 1.0 1.0 1.0 0.0)
+(SampleLastDimensionRandomly "false") // True for some time points, false for all
+
+
+// ==============================================================================
+// Additional Method Options:
+// ==============================================================================
+(UseDirectionCosines "true")
+(UseFastAndLowMemoryVersion "true")
+(UseJacobianPreconditioning "false")
+(FiniteDifferenceDerivative "false")                  // EXPERIMENTAL: DO NOT USE
+
+
+// ==============================================================================
+// Optimizer settings
+// ==============================================================================
+// Defined by Study Program:
+(NumberOfResolutions 3)
+(FinalGridSpacingInPhysicalUnits 13.0 13.0 13.0 1.0)
+(MaximumNumberOfIterations 2000 2000 2000)
+
+// Defined manually:
+(NumberOfSamplesForExactGradient 150000 150000 150000)
+(GridSpacingSchedule 4.0 4.0 4.0 1.0 2.0 2.0 2.0 1.0 1.0 1.0 1.0 1.0)
+
+(SP_A 20.0)
+(SigmoidInitialTime 1.0)
+(AutomaticParameterEstimation "true") // False automatically for RandomCoordinate
+
+
+// ==============================================================================
+// Mask settings
+// ==============================================================================
+// If you use a mask, this option is important. You can set it for each
+// resolution differently. If the mask serves as region of interest, set it to
+// false. If the mask indicates which pixels are valid, then set it to true. If
+// you do not use a mask, the option doesn't matter.
+
+// !!! Used to segment out artificial edges in images like US !!!
+(ErodeFixedMask "false")
+(ErodeMovingMask "false")
+
+
+// ==============================================================================
+// Transform settings
+// ==============================================================================
+// Defined manually:
+(HowToCombineTransforms "Compose" )
+
+
+// ==============================================================================
+// Pyramid settings
+// ==============================================================================
+// Defined manually:
+(FixedImagePyramidSchedule 0 0 0 0 0 0 0 0 0 0 0 0)
+(MovingImagePyramidSchedule 4 4 4 0 2 2 2 0 1 1 1 0)
+
+
+// ==============================================================================
+// Sampler parameters
+// ==============================================================================
+// The variance metric is allowed to get random samples, the penalty term isn't,
+// because of the langrage multipliers, which should correspond to the same
+// sample locations in every iteration
+
+// Defined by Study Program:
+(NumberOfSpatialSamples 3500 5000 5000) // Distributed over the time phases
+ 
+// Defined manually:
+(ImageSampler "RandomCoordinate")
+(CheckNumberOfSamples "false")
+(NewSamplesEveryIteration "true")
+(UseRandomSampleRegion "false")
+(MaximumNumberOfSamplingAttempts 50)
+
+
+// ==============================================================================
+// Output settings
+// ==============================================================================
+// Defined manually:
+(WriteTransformParametersEachIteration "false")
+(WriteTransformParametersEachResolution "true")
+
+(WriteResultImage "true")
+(CompressResultImage "false")
+(WriteResultImageAfterEachResolution "true")
+(ResultImagePixelType "float")
+(ResultImageFormat "mha")
+
+(ShowExactMetricValue "false" )
+(DefaultPixelValue 0)
+
+// ==============================================================================
