@@ -10,4 +10,4 @@ Authored by: Zhehao Zhang, Jiaming Liu, Deshan Yang, Ulugbek S. Kamilov, Geoffre
 
 
 # Models
-You can download the pre-trained model and one prepared SPARE challenge dataset in npy format from [Google Drive](https://drive.google.com/drive/folders/194KKJPdF-7xSAm5Z3YXO5LGKYzl6pFQw?usp=sharing).
+You can download the pre-trained model and one prepared SPARE challenge dataset in npy format from [Google Drive](https://drive.google.com/drive/folders/194KKJPdF-7xSAm5Z3YXO5LGKYzl6pFQw?usp=sharing). You can get more 4D-CBCT data from the [SPARE challenge website](https://image-x.sydney.edu.au/spare-challenge/).
