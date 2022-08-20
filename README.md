@@ -8,8 +8,20 @@ Authored by: Zhehao Zhang, Jiaming Liu, Deshan Yang, Ulugbek S. Kamilov, Geoffre
 
 # Run the code
 ## Prerequisites 
-tensorflow 2.0.0
-SimpleITK 2.0.2
+* tensorflow 2.0.0
+* tensorflow_addons 0.6.0
+* SimpleITK 2.0.2
+* numpy 1.19.2
 
-# Model and data
-You can download the pre-trained model and one prepared SPARE challenge dataset in npy format from [Google Drive](https://drive.google.com/drive/folders/194KKJPdF-7xSAm5Z3YXO5LGKYzl6pFQw?usp=sharing). You can get more 4D-CBCT data from the [SPARE challenge website](https://image-x.sydney.edu.au/spare-challenge/).
+## Model and data
+You can download the pre-trained model and one prepared SPARE challenge dataset in npy format from [Google Drive](https://drive.google.com/drive/folders/194KKJPdF-7xSAm5Z3YXO5LGKYzl6pFQw?usp=sharing). Once you have downloaded these files, You can also get more 4D-CBCT data from the [SPARE challenge website](https://image-x.sydney.edu.au/spare-challenge/).
+
+
+## Usage
+You will need a config file to 'direct' the code. By setting `train_model = True`, the training process is enabled. By setting `pred_model = True`, the code will compile the CNN model and load the pre-trained weights with the file name of `final_weights_file`. 
+
+With the provided model weights 
+
+```
+python Selfcontained_CBCT/3Dpatch_code/main.py -c path_to_provided_config_file -d path_to_provided -e Selfcontained_CBCT/experiments/
+```
