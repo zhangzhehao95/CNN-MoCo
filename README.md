@@ -21,7 +21,7 @@ You can also get more 4D-CBCT data from the [SPARE challenge website](https://im
 ## Usage
 You will need a config file to direct the code. By setting `train_model = True`, the training process is enabled. By setting `pred_model = True`, the code will compile the CNN model and load the pre-trained weights file. 
 
-You can run the demo code to reduce the streaking artifacts from the SPARE images using the provided model: 
+You can run the demo to reduce the streaking artifacts from the SPARE images using the provided model: 
 
 ```
 python artifact_reduction_cnn/main.py -c demo_config.py -d data/ -e experiments/
