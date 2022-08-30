@@ -27,19 +27,15 @@ You can run the demo code to reduce the streaking artifacts from the SPARE image
 python artifact_reduction_cnn/main.py -c demo_config.py -d data/ -e experiments/
 ```
 
-To train your own model, you can easily include your own data in the 'data' folder and modify the config file by setting `train_model = True` and changing 'train_dir' correspondingly. 
+To train your own model, you can easily include your own data in the 'data' folder and modify the config file by setting `train_model = True` and changing `train_dir` correspondingly. 
 
-# Motion compensation
+# Motion model estimation
 To reproduce our work, the outputs of artifact-reduction CNN (CNN enhanced images) are only the intermediate results. To get the final CNN+MoCo results, you will also need to estimate the motion model using the CNN enhanced images and utilize such motion model to performed a motion-compensated reconstruction.
 
-## Motion model estimation
 We estimated the motion model using a groupwise registation method. That's to say, you will need to construct the moving and fixed images as 4D data, where the moving images is constructed by concatenating all ten phases together and fixed image is constructed by duplicating one specific phase ten times. We are using elastix v5.0.1 to perform the registation and the parameter file is provided.
 
-## Motion-compensated reconstruction
+# Motion-compensated reconstruction
 After getting the motion model for one specific phase, we performed the MoCo reconstruction for that phase using a voxel-driven FDK algorithm which back-projected the projection data into the volume space along warped trajectories according to the phase-correlated deformation vector fields. Reconstruction Toolkit v2.1.0 were utilized for this final step.
-
-#Results
-
 
 # Contact
 The code is provided to support reproducible research. If there is any unknown error or you need further help, please feel free to contact me at zhehao.zhang@wustl.edu.
