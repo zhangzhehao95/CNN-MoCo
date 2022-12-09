@@ -6,6 +6,9 @@ Here we provide the Python code for the artifact-reduction CNN training and infe
 
 Authored by: Zhehao Zhang, Jiaming Liu, Deshan Yang, Ulugbek S. Kamilov, Geoffrey D. Hugo
 
+## Citation
+Zhang, Z, Liu, J, Yang, D, Kamilov, US, Hugo, GD. Deep learning-based motion compensation for four-dimensional cone-beam computed tomography (4D-CBCT) reconstruction. Med Phys. 2022; 1- 13. https://doi.org/10.1002/mp.16103
+
 # Run the code
 ## Prerequisites 
 * tensorflow 2.0.0
