@@ -44,4 +44,7 @@ We estimated the motion model using a groupwise registation method. That's to sa
 After getting the motion model for one specific phase, we performed the MoCo reconstruction for that phase using a voxel-driven FDK algorithm which back-projected the projection data into the volume space along warped trajectories according to the phase-correlated deformation vector fields. Reconstruction Toolkit v2.1.0 were utilized for this final step.
 
 # Contact
+Pytorch version is available at https://github.com/zhangzhehao95/CNN-MoCo-Pytorch
 The code is provided to support reproducible research. If there is any unknown error or you need further help, please feel free to contact me at zhehao.zhang@wustl.edu.
+
+
